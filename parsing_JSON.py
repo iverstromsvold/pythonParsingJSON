@@ -1,11 +1,13 @@
 import json
 import requests
 
-base_url = 'https://dummyjson.com/recipes'
+a = 45
+
+base_url = 'https://dummyjson.com/recipes?limit=' + str(a)
 get_JSON=requests.get(base_url)
 JSON_data=get_JSON.json()
 
-for i in range(30):
+for i in range(a):
     ID=JSON_data["recipes"][i]['id']
     N=JSON_data["recipes"][i]['name']
     Ingr=JSON_data["recipes"][i]['ingredients']
