@@ -8,10 +8,14 @@ def example(a):
     JSON_data=get_JSON.json()
 
     for i in range(a):
-        id=JSON_data["recipes"][i]['id']
-        n=JSON_data["recipes"][i]['name']
-        ingr=JSON_data["recipes"][i]['ingredients']
+        id = JSON_data["recipes"][i]['id']
+        n = JSON_data["recipes"][i]['name']
+        ingr = JSON_data["recipes"][i]['ingredients']
+        instr = JSON_data["recipes"][i]['instructions']
 
         print('id: ', id)
         print('name: ', n)
         print('ingredients: ', ingr)
+        print('instructions: ', instr)
+
+example(45)
