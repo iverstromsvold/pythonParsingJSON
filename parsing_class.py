@@ -2,29 +2,36 @@ import json
 import requests
 
 class Recipes:
-    def __init__(self):
+    def __init__(self, a, base_url):
         self.a = a
-        self.base_url = 'https://dummyjson.com/recipes?limit=' + str(a)
+        self.base_url = base_url
+        self.id = id
+        #self.name = name
 
-    def get_ID(a):
-        # a = 45
-        get_JSON = requests.get(self.base_url)
+    def get_ID(self, a):
+        base_url = 'https://dummyjson.com/recipes?limit=' + str(a)
+        get_JSON = requests.get(base_url)
         JSON_data = get_JSON.json()
         for i in range(a):
             id = JSON_data["recipes"][i]['id']
+            print('id: ', id)
         return id
 
-        """for i in range(a):
-            id = JSON_data["recipes"][i]['id']
-            n = JSON_data["recipes"][i]['name']
-            ingr = JSON_data["recipes"][i]['ingredients']
-            instr = JSON_data["recipes"][i]['instructions']"""
+    def get_Name(self, a):
+        base_url = 'https://dummyjson.com/recipes?limit=' + str(a)
+        get_JSON = requests.get(base_url)
+        JSON_data = get_JSON.json()
+        for i in range(a):
+            name = JSON_data["recipes"][i]['name']
+            print('name: ', name)
+        return name
 
-        print('id: ', id)
             #print('name: ', n)
             #print('ingredients: ', ingr)
             #print('instructions: ', instr)"""
 
-obj = Recipes()
+obj = Recipes(5, 'https://dummyjson.com/recipes?limit=' + str(10))
 
-obj.get_ID()
+obj.get_ID(11)
+
+#obj.get_Name(5)
